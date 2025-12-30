@@ -1,0 +1,27 @@
+# Core dependencies
+anthropic>=0.18.0
+openai>=1.10.0
+python-dotenv>=1.0.0
+pyyaml>=6.0.0
+
+# Document processing
+PyPDF2>=3.0.0
+python-docx>=1.1.0
+Pillow>=10.0.0
+pytesseract>=0.3.10
+
+# Vector database and embeddings
+chromadb>=0.4.22
+sentence-transformers>=2.3.1
+
+# Retrieval
+rank-bm25>=0.2.2
+
+# Utilities
+numpy>=1.24.0
+tqdm>=4.66.0
+
+# Optional: Web interface
+fastapi>=0.109.0
+uvicorn>=0.27.0
+pydantic>=2.5.0

@@ -14,6 +14,9 @@ pip install -r requirements.txt
    **Windows:**
    - Download installer from: https://github.com/UB-Mannheim/tesseract/wiki
    - Install and add to PATH, or set path in code
+     ```bash
+     winget install --id UB-Mannheim.TesseractOCR
+     ```
    
    **macOS:**
    ```bash

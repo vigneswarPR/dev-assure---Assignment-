@@ -75,6 +75,17 @@ Hypothetical document:''',
             }
         }
 
+        # Load config from file if provided, otherwise use defaults
+        config = self.default_config.copy()
+        if config_path and Path(config_path).exists():
+            with open(config_path, 'r') as f:
+                file_config = yaml.safe_load(f) or {}
+                config.update(file_config)
+
+        # Set attributes dynamically from config
+        for key, value in config.items():
+            setattr(self, key, value)
+
 
 class HybridRetriever:
     """

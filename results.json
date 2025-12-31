@@ -1,0 +1,218 @@
+{
+  "success": true,
+  "query": "hotel booking and search",
+  "use_cases": [
+    {
+      "id": "UC001",
+      "title": "Search for available hotels",
+      "goal": "Verify that the user can successfully search for hotels based on destination, dates, and occupancy.",
+      "preconditions": [
+        "User is on the hotel search page."
+      ],
+      "test_data": {
+        "destination": "New York",
+        "check_in_date": "2024-05-01",
+        "check_out_date": "2024-05-07",
+        "adults": 2,
+        "children": 0,
+        "rooms": 1
+      },
+      "steps": [
+        "Step 1: Enter destination as 'New York'.",
+        "Step 2: Select check-in date as '2024-05-01'.",
+        "Step 3: Select check-out date as '2024-05-07'.",
+        "Step 4: Select number of adults as '2' and children as '0'.",
+        "Step 5: Click on 'Search'."
+      ],
+      "expected_results": [
+        "A list of available hotels is displayed.",
+        "Each hotel shows nightly price, total price, ratings, and review count."
+      ],
+      "test_type": "positive",
+      "priority": "high",
+      "tags": [
+        "hotel search",
+        "positive case"
+      ]
+    },
+    {
+      "id": "UC002",
+      "title": "Search with invalid date range",
+      "goal": "Verify that the user receives an error message when the check-out date is before check-in date.",
+      "preconditions": [
+        "User is on the hotel search page."
+      ],
+      "test_data": {
+        "destination": "Los Angeles",
+        "check_in_date": "2024-06-10",
+        "check_out_date": "2024-06-05",
+        "adults": 1,
+        "children": 0,
+        "rooms": 1
+      },
+      "steps": [
+        "Step 1: Enter destination as 'Los Angeles'.",
+        "Step 2: Select check-in date as '2024-06-10'.",
+        "Step 3: Select check-out date as '2024-06-05'.",
+        "Step 4: Select number of adults as '1' and children as '0'.",
+        "Step 5: Click on 'Search'."
+      ],
+      "expected_results": [
+        "An error message is displayed indicating the date range is invalid.",
+        "No hotel results are shown."
+      ],
+      "test_type": "negative",
+      "priority": "high",
+      "tags": [
+        "hotel search",
+        "negative case"
+      ]
+    },
+    {
+      "id": "UC003",
+      "title": "Search for fully booked dates",
+      "goal": "Verify that the user is informed when no hotels are available for the selected dates.",
+      "preconditions": [
+        "User is on the hotel search page."
+      ],
+      "test_data": {
+        "destination": "Paris",
+        "check_in_date": "2024-12-25",
+        "check_out_date": "2024-12-30",
+        "adults": 2,
+        "children": 0,
+        "rooms": 1
+      },
+      "steps": [
+        "Step 1: Enter destination as 'Paris'.",
+        "Step 2: Select check-in date as '2024-12-25'.",
+        "Step 3: Select check-out date as '2024-12-30'.",
+        "Step 4: Select number of adults as '2' and children as '0'.",
+        "Step 5: Click on 'Search'."
+      ],
+      "expected_results": [
+        "A message is displayed indicating no available hotels for the selected dates.",
+        "No hotel results are shown."
+      ],
+      "test_type": "boundary",
+      "priority": "medium",
+      "tags": [
+        "hotel search",
+        "boundary case"
+      ]
+    },
+    {
+      "id": "UC004",
+      "title": "Search with empty destination",
+      "goal": "Verify that the user receives an error message when no destination is entered.",
+      "preconditions": [
+        "User is on the hotel search page."
+      ],
+      "test_data": {
+        "destination": "",
+        "check_in_date": "2024-07-01",
+        "check_out_date": "2024-07-05",
+        "adults": 1,
+        "children": 0,
+        "rooms": 1
+      },
+      "steps": [
+        "Step 1: Leave destination field empty.",
+        "Step 2: Select check-in date as '2024-07-01'.",
+        "Step 3: Select check-out date as '2024-07-05'.",
+        "Step 4: Select number of adults as '1' and children as '0'.",
+        "Step 5: Click on 'Search'."
+      ],
+      "expected_results": [
+        "An error message is displayed indicating that the destination cannot be empty.",
+        "No hotel results are shown."
+      ],
+      "test_type": "negative",
+      "priority": "high",
+      "tags": [
+        "hotel search",
+        "negative case"
+      ]
+    },
+    {
+      "id": "UC005",
+      "title": "Search with multiple rooms and guests",
+      "goal": "Verify that the user can search for hotels with multiple rooms and guests.",
+      "preconditions": [
+        "User is on the hotel search page."
+      ],
+      "test_data": {
+        "destination": "Tokyo",
+        "check_in_date": "2024-08-15",
+        "check_out_date": "2024-08-20",
+        "adults": 4,
+        "children": 2,
+        "rooms": 2
+      },
+      "steps": [
+        "Step 1: Enter destination as 'Tokyo'.",
+        "Step 2: Select check-in date as '2024-08-15'.",
+        "Step 3: Select check-out date as '2024-08-20'.",
+        "Step 4: Select number of adults as '4' and children as '2'.",
+        "Step 5: Select '2 rooms'.",
+        "Step 6: Click on 'Search'."
+      ],
+      "expected_results": [
+        "A list of available hotels is displayed for 4 adults and 2 children.",
+        "Results show proper pricing and availability for selected occupancy."
+      ],
+      "test_type": "positive",
+      "priority": "medium",
+      "tags": [
+        "hotel search",
+        "positive case"
+      ]
+    }
+  ],
+  "assumptions": [
+    "The hotel search feature correctly integrates with the backend to fetch and display available hotels.",
+    "The user is familiar with the hotel search interface."
+  ],
+  "missing_info": [
+    "Specific error messages for various invalid scenarios.",
+    "Details on how the system handles currency and localization in search results."
+  ],
+  "metadata": {
+    "retrieved_chunks": 5,
+    "duration_seconds": 27.632465,
+    "top_k": 5,
+    "min_score": 0.3
+  },
+  "debug": {
+    "chunks": [
+      {
+        "content": "Feature: Hotel Search\n1. Overview\nThe Hotel Search feature allows users to search and compare accommodations based on destination, dates, occupancy, and preferences, returning a ranked list of propert...",
+        "source": "sample_data\\Booking.com Hotel Search.docx",
+        "score": 0.507379913134653
+      },
+      {
+        "content": "Booking.com INR =@ _List your property\n( & stays ) > Flights @, Flight + Hotel @ Carrental GB Attractions TM Airport taxis\nFind your next stay\nSearch deals on hotels, homes, and much more...\n=) where ...",
+        "source": "sample_data\\booking_search_1.png",
+        "score": 0.3699465082492028
+      },
+      {
+        "content": "Feature: Flight Search\n1. Overview\nThe Flight Search feature allows users to discover available flights between an origin and destination for given travel dates. The feature supports one-way, round-tr...",
+        "source": "sample_data\\Booking.com Flight Search.docx",
+        "score": 0.3426506774079415
+      },
+      {
+        "content": "User Flow\nUser selects Flights tab\nEnters:\nOrigin (city/airport)\nDestination (city/airport)\nDeparture date\nReturn date (optional)\nPassengers & class\nUser clicks Search\nSystem fetches flight options\nRe...",
+        "source": "sample_data\\Booking.com Flight Search.docx",
+        "score": 0.30202190173752663
+      },
+      {
+        "content": "Feature: Flight Filters\n1. Overview\nThe Flight Filters feature enables users to refine flight search results based on price, stops, airlines, times, duration, and policies to quickly find relevant opt...",
+        "source": "sample_data\\Booking.com Filters Flight.docx",
+        "score": 0.23308530505760247
+      }
+    ],
+    "warnings": [
+      "Use case 'Search with empty destination' may contain hallucinated content (low context overlap: 26.32%)"
+    ]
+  }
+}

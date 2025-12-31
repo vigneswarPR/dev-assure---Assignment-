@@ -40,7 +40,8 @@ def clear_database():
     )
 
     logger.info("Database cleared successfully")
-    print("✅ Database cleared - old chunks removed")
+    print(" Database cleared - old chunks removed")
 
 if __name__ == "__main__":
     clear_database()
+

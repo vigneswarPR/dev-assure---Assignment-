@@ -85,7 +85,7 @@ class RAGApplication:
                     all_chunks.extend(chunks)
                 
                 stats['processed'] += 1
-                logger.info(f"✓ Processed {file_path.name} - {len(chunks)} chunks")
+                logger.info(f"Processed {file_path.name} - {len(chunks)} chunks")
                 
             except Exception as e:
                 stats['failed'] += 1

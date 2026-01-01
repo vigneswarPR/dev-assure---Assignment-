@@ -74,13 +74,9 @@ devassure2/
 
 ## Testing
 
-1. **Test Azure OpenAI connection:**
-   ```bash
-   python azure_test.py
-   # Output: ✓ Authentication successful!
-   ```
 
-2. **Test retrieval and check chunks:**
+
+1. **Test retrieval and check chunks:**
    ```bash
    # Use --debug to see retrieved chunks and their relevance scores
    python app.py query "your query" --debug --top-k 5
@@ -92,7 +88,7 @@ devassure2/
    - HYDE (hypothetical document) generation
    - Reranking results
 
-3. **View results:**
+2. **View results:**
    - **`results.json`** - Generated test cases in JSON format
    - Console output shows full details including assumptions and missing info
 
